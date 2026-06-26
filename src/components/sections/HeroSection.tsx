@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 export default function HeroSection() {
@@ -68,42 +68,23 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-              className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold tracking-tight text-[#2C4D78] mb-6 leading-[1.05]"
+              className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold tracking-tight text-[#2C4D78] mb-8 leading-[1.05]"
               style={{ letterSpacing: "-0.04em" }}
             >
               Q-RETIX AI
             </motion.h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="text-lg sm:text-xl text-[#5A6B82] max-w-xl mb-10 leading-relaxed"
-            >
-              AI-Powered Pharmaceutical Intelligence for Research, Drug
-              Discovery, Clinical Analysis, and Scientific Innovation.
-            </motion.p>
-
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="flex flex-col sm:flex-row items-center gap-4"
+              transition={{ duration: 0.8, delay: 0.2 }}
             >
               <Link
                 href="#waitlist"
-                className="gradient-brand text-white hover:opacity-90 transition-all hover:scale-105 hover:shadow-xl hover:shadow-[#2C4D78]/25 font-semibold px-7 py-3 text-[15px] rounded-xl inline-flex items-center gap-2 h-12 shadow-lg shadow-[#2C4D78]/15"
+                className="gradient-brand text-white hover:opacity-90 transition-all hover:scale-105 hover:shadow-xl hover:shadow-[#2C4D78]/25 font-semibold px-8 py-3.5 text-[15px] rounded-xl inline-flex items-center gap-2 h-12 shadow-lg shadow-[#2C4D78]/15"
               >
-                Schedule Demo
+                Join Waitlist
                 <ArrowRight className="w-5 h-5" />
-              </Link>
-
-              <Link
-                href="#platform"
-                className="border border-[#D0E0E8] text-[#33415C] hover:bg-[#E6EEF2] hover:border-[#2C4D78] font-semibold px-7 py-3 text-[15px] rounded-xl transition-all hover:scale-105 inline-flex items-center gap-2 h-12 bg-white shadow-sm"
-              >
-                <Play className="w-5 h-5 fill-[#2C4D78] text-[#2C4D78]" />
-                Explore Platform
               </Link>
             </motion.div>
           </div>

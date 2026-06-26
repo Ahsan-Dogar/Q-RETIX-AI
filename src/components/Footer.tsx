@@ -5,10 +5,6 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import {
   FlaskConical,
-  Globe,
-  MessageCircle,
-  Link as LinkIcon,
-  Mail,
   ArrowUpRight,
 } from "lucide-react";
 
@@ -25,7 +21,7 @@ const footerLinks = [
   {
     title: "Company",
     links: [
-      { label: "About", href: "#about" },
+      { label: "About Us", href: "/about" },
       { label: "Blog", href: "/blog" },
       { label: "Careers", href: "#careers" },
       { label: "Press", href: "#press" },
@@ -37,7 +33,7 @@ const footerLinks = [
       { label: "Documentation", href: "#docs" },
       { label: "API Reference", href: "#api" },
       { label: "Community", href: "#community" },
-      { label: "Support", href: "#support" },
+      { label: "Support", href: "/contact" },
     ],
   },
   {
@@ -51,15 +47,23 @@ const footerLinks = [
   },
 ];
 
+const socialLinks = [
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/pharmaa-ai/", initial: "in" },
+  { label: "Instagram", href: "https://www.instagram.com/qretix_ai_official/", initial: "Ig" },
+  { label: "X", href: "https://x.com/QRETIXAIorg", initial: "X" },
+  { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61590886726981", initial: "f" },
+  { label: "Substack", href: "https://substack.com/@qretixai", initial: "Ss" },
+  { label: "Medium", href: "https://medium.com/@qretix.ai2405", initial: "M" },
+  { label: "Reddit", href: "https://www.reddit.com/user/Q-RETIX_AI_official/", initial: "R" },
+];
+
 export default function Footer() {
   return (
     <footer className="relative bg-[#0f172a] text-white overflow-hidden">
-      {/* subtle top glow line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#2C4D78]/40 to-transparent" />
 
       <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-10 lg:gap-8">
-          {/* Brand column */}
           <div className="col-span-2 md:col-span-4 lg:col-span-2">
             <Link href="/" className="flex items-center gap-2.5 mb-5">
               <div className="w-8 h-8 rounded-lg gradient-brand flex items-center justify-center shadow-lg">
@@ -72,20 +76,18 @@ export default function Footer() {
             <p className="text-sm text-slate-400 leading-relaxed mb-6 max-w-sm">
               AI-Powered Pharmaceutical Intelligence for Research, Drug Discovery, and Clinical Analysis.
             </p>
-            <div className="flex items-center gap-2.5">
-              {[
-                { icon: Globe, label: "Website" },
-                { icon: MessageCircle, label: "Community" },
-                { icon: LinkIcon, label: "Link" },
-                { icon: Mail, label: "Email" },
-              ].map((social) => (
+            <div className="flex flex-wrap items-center gap-2">
+              {socialLinks.map((social) => (
                 <a
                   key={social.label}
-                  href="#"
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-white/30 hover:bg-white/10 transition-all"
+                  className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-white/30 hover:bg-white/10 transition-all text-[10px] font-bold"
+                  title={social.label}
                 >
-                  <social.icon className="w-4 h-4" />
+                  {social.initial}
                 </a>
               ))}
             </div>
