@@ -102,8 +102,7 @@ export default function TeamCard({ member, index }: { member: TeamMember; index:
 
         <div className="relative z-10">
           {/* Image area */}
-          <div className="relative h-52 sm:h-56 overflow-hidden"
-          >
+          <div className="relative aspect-[4/3] overflow-hidden">
             <motion.div
               whileHover={{ scale: 1.08 }}
               transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
@@ -114,7 +113,7 @@ export default function TeamCard({ member, index }: { member: TeamMember; index:
                   src={member.image}
                   alt={member.name}
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
               ) : (

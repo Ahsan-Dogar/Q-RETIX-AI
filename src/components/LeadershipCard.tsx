@@ -122,7 +122,7 @@ export default function LeadershipCard({ leader, index }: { leader: Leader; inde
                     src={leader.image}
                     alt={leader.name}
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
                     sizes="(max-width: 640px) 160px, (max-width: 1024px) 192px, 224px"
                   />
                 </div>

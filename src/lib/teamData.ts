@@ -2,6 +2,7 @@ export interface TeamMember {
   name: string;
   role: string;
   image: string;
+  email?: string;
   linkedin?: string;
   instagram?: string;
   portfolio?: string;
@@ -102,5 +103,16 @@ export const techTeam: TeamMember[] = [
     name: "Bandi Damini",
     role: "AI Engineer",
     image: "",
+  },
+];
+
+export const marketingTeam: TeamMember[] = [
+  {
+    name: "Swapnaneel Dutta",
+    role: "Marketing Director",
+    image: "/images/team/Swapnaneel Dutta.jpg",
+    email: "s.dutta2k5@gmail.com",
+    linkedin: "https://www.linkedin.com/in/swapnaneel-dutta/",
+    portfolio: "https://sd2k5portfolio.vercel.app/",
   },
 ];

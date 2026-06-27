@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Rocket, TrendingUp, Megaphone, BarChart3 } from "lucide-react";
 import Link from "next/link";
-import { designTeam, techTeam } from "@/lib/teamData";
+import { designTeam, techTeam, marketingTeam } from "@/lib/teamData";
 import LeadershipCard from "@/components/LeadershipCard";
 import TeamCard from "@/components/TeamCard";
 import TeamTabs from "@/components/TeamTabs";
@@ -16,7 +16,7 @@ export default function TeamShowcase() {
   const teamMap = {
     design: designTeam,
     tech: techTeam,
-    marketing: [],
+    marketing: marketingTeam,
   };
 
   const currentTeam = teamMap[activeTeam as keyof typeof teamMap];
@@ -139,7 +139,7 @@ export default function TeamShowcase() {
           </div>
 
           <AnimatePresence mode="wait">
-            {activeTeam === "marketing" ? (
+            {activeTeam === "marketing" && currentTeam.length === 0 ? (
               <motion.div
                 key="marketing-empty"
                 initial={{ opacity: 0, y: 20 }}
