@@ -134,68 +134,65 @@ function BlogCard({
             style={{ opacity: springOverlay }}
           />
 
-          {/* Cover image — 800 x 643 aspect */}
-          <div className="relative w-full aspect-[800/643] overflow-hidden bg-[#F8FAFB]">
+          {/* Cover image — exact 800 x 643 aspect, rounded top corners */}
+          <div className="relative w-full aspect-[800/643] overflow-hidden rounded-t-[28px] bg-[#F8FAFB]">
             <Image
               src={blog.image}
               alt={blog.title}
               fill
-              className="object-cover"
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
               sizes="(max-width: 768px) 100vw, 800px"
               priority={index === 0}
             />
-
-            <div className="absolute top-4 left-4 sm:top-5 sm:left-5">
-              <div className="px-3 py-1.5 rounded-full bg-white/80 backdrop-blur-md border border-white/60 text-[11px] sm:text-[12px] font-bold text-[#2C4D78] tracking-wide shadow-sm">
-                {blog.category}
-              </div>
-            </div>
-
-            <div className="absolute bottom-4 right-4 sm:bottom-5 sm:right-5">
-              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/80 backdrop-blur-md border border-white/60 flex items-center justify-center text-[#2C4D78] font-bold text-[11px] sm:text-[13px] shadow-sm">
-                {String(index + 1).padStart(2, "0")}
-              </div>
-            </div>
+            {/* Subtle bottom gradient for smooth transition into content */}
+            <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white/40 to-transparent pointer-events-none" />
           </div>
 
           {/* Content */}
-          <div className="p-5 sm:p-7 lg:p-8">
-            <div className="flex items-center gap-2.5 sm:gap-3 mb-4 text-[11px] sm:text-[13px] text-[#8A9BB0]">
-              <div className="flex items-center gap-1.5">
-                <User className="w-3 h-3 sm:w-3.5 sm:h-3.5" strokeWidth={2} />
-                <span className="font-medium">{blog.author}</span>
-              </div>
+          <div className="p-5 sm:p-6 lg:p-7">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="px-2.5 py-1 rounded-full bg-[#2C4D78]/8 text-[11px] sm:text-[12px] font-bold text-[#2C4D78] tracking-wide">
+                {blog.category}
+              </span>
               <span className="w-1 h-1 rounded-full bg-[#D0E0E8]" />
-              <div className="flex items-center gap-1.5">
-                <Calendar className="w-3 h-3 sm:w-3.5 sm:h-3.5" strokeWidth={2} />
-                <span>{blog.date}</span>
-              </div>
-              <span className="w-1 h-1 rounded-full bg-[#D0E0E8]" />
-              <div className="flex items-center gap-1.5">
-                <Clock className="w-3 h-3 sm:w-3.5 sm:h-3.5" strokeWidth={2} />
-                <span>{blog.readTime}</span>
-              </div>
+              <span className="text-[11px] sm:text-[12px] text-[#8A9BB0] font-medium">
+                {blog.readTime}
+              </span>
             </div>
 
-            <h3 className="text-lg sm:text-xl lg:text-[22px] font-bold text-[#1a2942] leading-[1.3] mb-3 group-hover:text-[#2C4D78] transition-colors duration-300">
+            <h3 className="text-lg sm:text-xl lg:text-[22px] font-bold text-[#1a2942] leading-[1.3] mb-2 group-hover:text-[#2C4D78] transition-colors duration-300">
               {blog.title}
             </h3>
 
-            <p className="text-[13px] sm:text-[15px] text-[#5A6B82] leading-[1.65] mb-6">
+            <p className="text-[13px] sm:text-[14px] text-[#5A6B82] leading-[1.65] mb-5 line-clamp-2">
               {blog.description}
             </p>
 
-            <Link
-              href="/blog"
-              className="inline-flex items-center gap-2 text-[13px] sm:text-[14px] font-semibold group/link w-fit"
-            >
-              <span className="text-[#2C4D78] group-hover/link:text-[#1a2942] transition-colors duration-300">
-                Read Article
-              </span>
-              <div className="w-7 h-7 rounded-full bg-[#E6EEF2] group-hover/link:bg-[#2C4D78] flex items-center justify-center transition-all duration-300 group-hover/link:translate-x-0.5">
-                <ArrowRight className="w-3.5 h-3.5 text-[#2C4D78] group-hover/link:text-white transition-colors duration-300" />
+            <div className="flex items-center justify-between pt-4 border-t border-[#E6EEF2]/40">
+              <div className="flex items-center gap-2.5 text-[11px] sm:text-[12px] text-[#8A9BB0]">
+                <div className="flex items-center gap-1">
+                  <User className="w-3 h-3" strokeWidth={2} />
+                  <span className="font-medium">{blog.author}</span>
+                </div>
+                <span className="w-1 h-1 rounded-full bg-[#D0E0E8]" />
+                <div className="flex items-center gap-1">
+                  <Calendar className="w-3 h-3" strokeWidth={2} />
+                  <span>{blog.date}</span>
+                </div>
               </div>
-            </Link>
+
+              <Link
+                href="/blog"
+                className="inline-flex items-center gap-2 text-[13px] font-semibold group/link"
+              >
+                <span className="text-[#2C4D78] group-hover/link:text-[#1a2942] transition-colors">
+                  Read Article
+                </span>
+                <div className="w-7 h-7 rounded-full bg-[#E6EEF2] group-hover/link:bg-[#2C4D78] flex items-center justify-center transition-all duration-300 group-hover/link:translate-x-0.5">
+                  <ArrowRight className="w-3.5 h-3.5 text-[#2C4D78] group-hover/link:text-white transition-colors" />
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
