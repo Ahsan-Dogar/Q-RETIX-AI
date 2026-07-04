@@ -14,7 +14,7 @@ import Link from "next/link";
 import SocialIcon from "@/components/SocialIcon";
 
 const socialLinks = [
-  { platform: "linkedin" as const, label: "LinkedIn", href: "https://www.linkedin.com/company/pharmaa-ai/" },
+  { platform: "linkedin" as const, label: "LinkedIn", href: "https://www.linkedin.com/company/qretix-ai/" },
   { platform: "instagram" as const, label: "Instagram", href: "https://www.instagram.com/qretix_ai_official/" },
   { platform: "x" as const, label: "X", href: "https://x.com/QRETIXAIorg" },
   { platform: "facebook" as const, label: "Facebook", href: "https://www.facebook.com/profile.php?id=61590886726981" },
