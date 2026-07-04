@@ -5,48 +5,32 @@ import Link from "next/link";
 
 const footerLinks = [
   {
-    title: "Conn",
+    title: "Q-RETIX AI",
     isBrand: true,
     links: [
+      { label: "Home", href: "/" },
       { label: "About", href: "/about" },
-      { label: "Features", href: "/features" },
-      { label: "Works", href: "/works" },
-      { label: "Career", href: "/career" },
+      { label: "Blog", href: "/blog" },
+      { label: "Careers", href: "/careers" },
     ],
   },
   {
-    title: "Help",
+    title: "Platform",
     links: [
-      { label: "Customer Support", href: "/support" },
+      { label: "Documentation", href: "/docs" },
       { label: "Delivery Details", href: "/delivery" },
-      { label: "Terms & Conditions", href: "/terms" },
-      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Contact & Support", href: "/contact" },
     ],
   },
   {
-    title: "Resources",
+    title: "Legal",
     links: [
-      { label: "Free eBooks", href: "/ebooks" },
-      { label: "Development Tutorial", href: "/tutorial" },
-      { label: "How to - Blog", href: "/blog" },
-      { label: "Youtube Playlist", href: "/youtube" },
+      { label: "Privacy Policy", href: "/legal/privacy" },
+      { label: "Terms & Conditions", href: "/legal/terms" },
+      { label: "Cookie Policy", href: "/legal/cookies" },
+      { label: "GDPR", href: "/legal/gdpr" },
     ],
   },
-  {
-    title: "Extra Links",
-    links: [
-      { label: "Customer Support", href: "/support" },
-      { label: "Delivery Details", href: "/delivery" },
-      { label: "Terms & Conditions", href: "/terms" },
-      { label: "Privacy Policy", href: "/privacy" },
-    ],
-  },
-];
-
-const bottomLinks = [
-  { label: "Privacy Policy", href: "/privacy" },
-  { label: "Terms & Conditions", href: "/terms" },
-  { label: "Support", href: "/support" },
 ];
 
 const socialIcons = [
@@ -117,27 +101,26 @@ const socialIcons = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#C4BEB5] text-black">
+    <footer className="bg-[#1a2942] text-white">
       <div className="mx-auto max-w-[1400px] px-6 sm:px-12 lg:px-20 pt-20 pb-10">
-        {/* Main footer grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 lg:gap-16">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-10 lg:gap-16">
           {footerLinks.map((group) => (
             <div key={group.title}>
               <h4
-                className={`text-black mb-8 ${
+                className={`text-white mb-8 ${
                   group.isBrand
-                    ? "text-[32px] font-bold leading-tight"
-                    : "text-lg font-semibold"
+                    ? "text-[24px] sm:text-[28px] font-bold leading-tight"
+                    : "text-sm font-semibold uppercase tracking-wider text-[#8A9BB0]"
                 }`}
               >
                 {group.title}
               </h4>
-              <ul className="space-y-5">
+              <ul className="space-y-4">
                 {group.links.map((link) => (
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-[15px] text-black hover:opacity-70 transition-opacity"
+                      className="text-[14px] sm:text-[15px] text-[#A8B5C5] hover:text-white transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -148,11 +131,9 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Bottom bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 mt-24 pt-8 border-t border-black/10">
-          <div className="flex items-center gap-8">
-            {/* Social icons */}
-            <div className="flex items-center gap-5">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 mt-16 pt-8 border-t border-white/10">
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8">
+            <div className="flex items-center gap-4">
               {socialIcons.map((social) => (
                 <a
                   key={social.label}
@@ -160,29 +141,16 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="hover:opacity-70 transition-opacity"
+                  className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
                 >
                   {social.svg}
                 </a>
               ))}
             </div>
-
-            {/* Bottom links */}
-            <div className="flex items-center gap-8">
-              {bottomLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  className="text-[15px] text-black hover:opacity-70 transition-opacity"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
           </div>
 
-          <p className="text-[15px] text-black">
-            © Copyright 2026, All Rights Reserved
+          <p className="text-[13px] sm:text-[14px] text-[#8A9BB0]">
+            © 2026 Q-RETIX AI. All rights reserved.
           </p>
         </div>
       </div>
