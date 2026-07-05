@@ -14,13 +14,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import styles from "./FigmaLandingPage.module.css";
-
-const articles = [
-  { image: "/images/blog/blog-1.jpg", alt: "Generative AI for molecule design" },
-  { image: "/images/blog/blog-2.jpg", alt: "Optimizing clinical trials with machine learning" },
-  { image: "/images/blog/blog-3.jpg", alt: "Precision medicine breakthroughs powered by AI" },
-  { image: "/images/blog/blog-4.jpg", alt: "Pharma supply chain resilience with AI" },
-];
+import FeaturedArticleStack from "./FeaturedArticleStack";
 
 const faqs = [
   "What AI drug discovery model was built?",
@@ -212,16 +206,7 @@ export default function FigmaLandingPage() {
         </div>
       </section>
 
-      <section id="articles" className={styles.articleSection}>
-        <div className={styles.articleHeading}><h2>Featured Top<br />Article</h2></div>
-        <div className={styles.articleList}>
-          {articles.map((article, index) => (
-            <Link href="/blog" className={styles.articleCard} key={article.image}>
-              <Image src={article.image} alt={article.alt} width={800} height={600} sizes="(max-width: 768px) 100vw, 48vw" priority={index === 0} />
-            </Link>
-          ))}
-        </div>
-      </section>
+      <FeaturedArticleStack />
 
       <section className={styles.faqSection}>
         <div className={styles.faqGlow}><span>FAQ</span></div>
