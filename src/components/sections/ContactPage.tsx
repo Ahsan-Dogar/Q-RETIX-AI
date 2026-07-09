@@ -55,36 +55,20 @@ const supportOptions = [
 
 const faqs = [
   {
-    question: "What if drug discovery could run itself?",
-    answer: "Our vision is an autonomous drug discovery engine where AI continuously learns, designs, evaluates, optimizes, and improves therapeutic candidates with minimal human intervention, dramatically accelerating innovation.",
+    question: "How do I get started with Q-RETIX AI?",
+    answer: "Join our waitlist for early access. Once approved, you will receive onboarding instructions and API credentials to begin using the Structural AI Discovery Matrix.",
   },
   {
-    question: "Why is your platform revolutionary?",
-    answer: "Instead of connecting isolated AI tools, we've built an AI scientist that orchestrates every stage of pharmaceutical R&D, creating a seamless closed-loop system from biological target discovery to delivery optimization.",
+    question: "What research data formats are supported?",
+    answer: "We support PDB, CIF, SDF, MOL2, FASTA, and CSV formats for structural and sequence data. Our pipeline also accepts AlphaFold-generated models and cryo-EM density maps.",
   },
   {
-    question: "Can your AI invent drugs that have never existed before?",
-    answer: "Yes. Using generative chemistry, our platform explores vast regions of chemical space beyond existing databases, proposing novel molecular structures optimized for therapeutic potential.",
+    question: "Is my proprietary target data secure?",
+    answer: "Absolutely. We use AES-256 encryption at rest and TLS 1.3 in transit. Our platform is built for pharmaceutical IP protection — your target structures and discovery outputs are never used to train shared models.",
   },
   {
-    question: "How does the platform become smarter over time?",
-    answer: "Every simulation, prediction, and experimental outcome feeds back into the system, allowing the AI to continuously refine its scientific understanding and improve future drug designs.",
-  },
-  {
-    question: "Is this just another large language model?",
-    answer: "No. Large language models are only one component. Our platform combines multimodal AI, generative chemistry, molecular simulations, predictive biology, and optimization engines into a unified pharmaceutical intelligence system.",
-  },
-  {
-    question: "Could this reduce the cost and time of bringing medicines to market?",
-    answer: "That's our mission. By automating repetitive scientific workflows, prioritizing the highest-potential candidates, and reducing unnecessary experiments, we aim to help researchers develop better medicines faster. Laboratory testing, regulatory review, and clinical trials remain essential before any treatment reaches patients.",
-  },
-  {
-    question: "What is the long-term vision?",
-    answer: "To build the world's first autonomous pharmaceutical R&D operating system, where AI acts as a collaborative scientist capable of generating, validating, and optimizing therapeutic innovations at unprecedented speed and scale.",
-  },
-  {
-    question: "What makes your technology difficult to replicate?",
-    answer: "Our advantage comes from integrating generative AI, generative chemistry, predictive biology, formulation optimization, and autonomous decision-making into one continuously learning platform, rather than relying on isolated models or point solutions.",
+    question: "Can Q-RETIX integrate with our existing computational chemistry stack?",
+    answer: "Yes. We offer API integrations with Schrödinger, OpenEye, and custom in-house pipelines. Our platform exports standard formats compatible with most molecular dynamics and docking workflows.",
   },
 ];
 
