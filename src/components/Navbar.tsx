@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Menu,
@@ -10,6 +10,7 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -17,6 +18,47 @@ const navLinks = [
   { label: "About Us", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
+
+function JoinWaitlistButton({
+  className,
+  onClick,
+  mobile = false,
+}: {
+  className: string;
+  onClick?: () => void;
+  mobile?: boolean;
+}) {
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const handleClick = useCallback(
+    (e: React.MouseEvent) => {
+      e.preventDefault();
+      onClick?.();
+
+      if (pathname === "/") {
+        const el = document.getElementById("waitlist");
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      } else {
+        router.push("/#waitlist");
+      }
+    },
+    [pathname, router, onClick]
+  );
+
+  return (
+    <button onClick={handleClick} className={className}>
+      Join Waitlist
+      {mobile ? (
+        <ChevronRight className="w-4 h-4" />
+      ) : (
+        <ArrowUpRight className="w-3.5 h-3.5" />
+      )}
+    </button>
+  );
+}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -66,13 +108,9 @@ export default function Navbar() {
             </nav>
 
             <div className="hidden lg:flex items-center gap-3">
-              <Link
-                href="#waitlist"
+              <JoinWaitlistButton
                 className="gradient-brand text-white hover:opacity-90 transition-all hover:scale-105 hover:shadow-lg hover:shadow-[#2C4D78]/20 font-semibold px-5 inline-flex items-center gap-1.5 h-9 rounded-xl text-[13px]"
-              >
-                Book Demo
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </Link>
+              />
             </div>
 
             <button
@@ -110,14 +148,11 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <Link
-                href="#waitlist"
+              <JoinWaitlistButton
+                mobile
                 onClick={() => setMobileOpen(false)}
                 className="gradient-brand text-white mt-2 font-semibold inline-flex items-center justify-center gap-2 h-10 rounded-xl text-sm px-4 py-2"
-              >
-                Book Demo
-                <ChevronRight className="w-4 h-4" />
-              </Link>
+              />
             </div>
           </motion.div>
         )}

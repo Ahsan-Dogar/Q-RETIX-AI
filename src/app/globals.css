@@ -148,3 +148,129 @@
     background-clip: text;
   }
 }
+
+/* Animated gradient ring for leadership cards */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Instagram hover gradient utility */
+.instagram-hover:hover {
+  background: linear-gradient(135deg, #833AB4, #E1306C, #FCAF45) !important;
+}
+
+/* ========== RESPONSIVE UTILITIES ========== */
+
+/* Fluid typography scale */
+@layer base {
+  h1 { @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl; }
+  h2 { @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl; }
+  h3 { @apply text-xl sm:text-2xl md:text-3xl; }
+  h4 { @apply text-lg sm:text-xl md:text-2xl; }
+}
+
+/* Responsive section spacing */
+@layer utilities {
+  .section-padding {
+    @apply py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32;
+  }
+  .section-padding-sm {
+    @apply py-12 sm:py-16 md:py-20 lg:py-24;
+  }
+  .section-padding-lg {
+    @apply py-20 sm:py-24 md:py-28 lg:py-32 xl:py-36;
+  }
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8 xl:px-12;
+  }
+  .hero-padding {
+    @apply pt-28 sm:pt-32 md:pt-36 lg:pt-40;
+  }
+}
+
+/* Scrollbar utilities */
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Smooth scroll for the whole page */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 120px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Better touch targets on mobile */
+@media (max-width: 640px) {
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Responsive card grid helpers */
+@layer utilities {
+  .grid-responsive-2 {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 lg:gap-6;
+  }
+  .grid-responsive-3 {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6;
+  }
+  .grid-responsive-4 {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6;
+  }
+}
+
+/* Aspect ratio helpers for images */
+@layer utilities {
+  .aspect-card {
+    aspect-ratio: 4 / 3;
+  }
+  .aspect-hero {
+    aspect-ratio: 16 / 9;
+  }
+  .aspect-square-mobile {
+    @apply aspect-square sm:aspect-auto;
+  }
+}
+
+/* Text clamp utilities */
+@layer utilities {
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .line-clamp-4 {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}

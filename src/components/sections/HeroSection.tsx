@@ -34,23 +34,23 @@ export default function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-[100vh] flex items-center overflow-hidden bg-white pt-[96px]"
+      className="relative min-h-[100dvh] flex items-center overflow-hidden bg-white pt-[80px] sm:pt-[96px]"
     >
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 w-80 h-80 bg-[#98D7C2]/25 rounded-full blur-[120px]" />
-        <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-[#A8DADC]/25 rounded-full blur-[140px]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#2C4D78]/8 rounded-full blur-[180px]" />
+        <div className="absolute top-10 left-5 sm:top-20 sm:left-10 w-60 h-60 sm:w-80 sm:h-80 bg-[#98D7C2]/25 rounded-full blur-[100px] sm:blur-[120px]" />
+        <div className="absolute bottom-10 right-5 sm:bottom-20 sm:right-10 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] bg-[#A8DADC]/25 rounded-full blur-[100px] sm:blur-[140px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] sm:w-[700px] sm:h-[700px] bg-[#2C4D78]/8 rounded-full blur-[120px] sm:blur-[180px]" />
       </div>
 
       <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="flex flex-col items-center justify-center text-center py-16 lg:py-0">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center">
+          <div className="flex flex-col items-center justify-center text-center py-10 sm:py-16 lg:py-0 order-2 lg:order-1">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E6EEF2] border border-[#D0E0E8] text-sm font-medium text-[#2C4D78] mb-8">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-[#E6EEF2] border border-[#D0E0E8] text-xs sm:text-sm font-medium text-[#2C4D78] mb-6 sm:mb-8">
                 <span className="w-2 h-2 rounded-full bg-[#98D7C2] animate-pulse" />
                 We are accepting early waitlist now, join Q-RETIX AI
               </div>
@@ -60,11 +60,20 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-              className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold tracking-tight text-[#2C4D78] mb-8 leading-[1.05]"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-[clamp(2.5rem,5vw,4.5rem)] font-bold tracking-tight text-[#2C4D78] mb-6 sm:mb-8 leading-[1.05]"
               style={{ letterSpacing: "-0.04em" }}
             >
               Q-RETIX AI
             </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.15 }}
+              className="text-sm sm:text-base md:text-lg text-[#5A6B82] max-w-md sm:max-w-lg mx-auto mb-6 sm:mb-8 leading-relaxed"
+            >
+              AI-Powered Pharmaceutical Intelligence for Research, Drug Discovery, and Clinical Analysis.
+            </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -73,21 +82,21 @@ export default function HeroSection() {
             >
               <Link
                 href="#waitlist"
-                className="gradient-brand text-white hover:opacity-90 transition-all hover:scale-105 hover:shadow-xl hover:shadow-[#2C4D78]/25 font-semibold px-8 py-3.5 text-[15px] rounded-xl inline-flex items-center gap-2 h-12 shadow-lg shadow-[#2C4D78]/15"
+                className="gradient-brand text-white hover:opacity-90 transition-all hover:scale-105 hover:shadow-xl hover:shadow-[#2C4D78]/25 font-semibold px-6 sm:px-8 py-3 sm:py-3.5 text-sm sm:text-[15px] rounded-xl inline-flex items-center gap-2 h-11 sm:h-12 shadow-lg shadow-[#2C4D78]/15"
               >
                 Join Waitlist
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </Link>
             </motion.div>
           </div>
 
-          <div className="hidden lg:flex items-center justify-center h-[560px]">
+          <div className="flex items-center justify-center h-[300px] sm:h-[400px] md:h-[500px] lg:h-[560px] order-1 lg:order-2">
             <motion.div
               initial={{ opacity: 0, scale: 0.85 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
               style={{ rotateX, rotateY, perspective: 1200 }}
-              className="relative w-full max-w-[540px] aspect-square"
+              className="relative w-full max-w-[320px] sm:max-w-[420px] md:max-w-[480px] lg:max-w-[540px] aspect-square"
             >
               <Image
                 src="/molecular-structure.png"
@@ -96,7 +105,7 @@ export default function HeroSection() {
                 className="object-contain"
                 priority
               />
-              <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[70%] h-8 bg-[#2C4D78]/5 rounded-[100%] blur-xl" />
+              <div className="absolute -bottom-4 sm:-bottom-8 left-1/2 -translate-x-1/2 w-[70%] h-6 sm:h-8 bg-[#2C4D78]/5 rounded-[100%] blur-xl" />
             </motion.div>
           </div>
         </div>
@@ -110,28 +119,24 @@ export default function HeroSection() {
 function FloatingParticles() {
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden">
-      {[...Array(20)].map((_, i) => (
+      {[...Array(12)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-2 h-2 rounded-full bg-[#98D7C2]/30"
+          className="absolute w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#98D7C2]/30"
           initial={{
-            x: Math.random() * (typeof window !== "undefined" ? window.innerWidth : 1000),
-            y: Math.random() * (typeof window !== "undefined" ? window.innerHeight : 800),
+            x: `${Math.random() * 100}%`,
+            y: `${Math.random() * 100}%`,
           }}
           animate={{
-            y: [null, -100, 100],
-            x: [null, 50, -50],
-            opacity: [0.3, 0.6, 0.3],
+            y: [null, -80, 80],
+            x: [null, 40, -40],
+            opacity: [0.2, 0.5, 0.2],
           }}
           transition={{
             duration: 8 + Math.random() * 10,
             repeat: Infinity,
             ease: "easeInOut",
             delay: Math.random() * 5,
-          }}
-          style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
           }}
         />
       ))}
