@@ -138,6 +138,23 @@ Update the blog data source or create new pages under `src/app/blog`.
 - The repository uses both `origin` and `upstream` remotes for source control management; the primary remote has been aligned to `https://github.com/Ahsan-Dogar/Q-RETIX-AI`
 - The site includes placeholder data for blog posts and team members that can be replaced with real product content
 
+## Contributing
+
+Contributions are welcome. To contribute safely and in the standard Git workflow:
+
+1. Create a feature branch from the latest main branch.
+2. Make focused changes with clear commit messages.
+3. Push the branch to the remote repository and share the branch name with the maintainer.
+
+Example:
+
+```bash
+git checkout -b feature/your-change
+git add .
+git commit -m "Describe your change"
+git push -u origin feature/your-change
+```
+
 ## License
 
 This repository includes a `LICENSE` file. Review the license before using or distributing the code.
