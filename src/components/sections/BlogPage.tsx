@@ -41,6 +41,7 @@ const posts = [
     readTime: "15 min read",
     author: "Q-RETIX Research Team",
     featured: true,
+    tags: ["AI", "Research", "Inflammasome", "Drug Discovery"],
   },
 ];
 
@@ -58,14 +59,22 @@ export default function BlogPage() {
 
   const filteredPosts = useMemo(() => {
     return posts.filter((post) => {
+      const searchableText = [post.title, post.excerpt, post.category, post.author, ...(post.tags ?? [])]
+        .join(" ")
+        .toLowerCase();
+
       const matchesSearch =
         !searchQuery ||
-        post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        post.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
+        searchableText.includes(searchQuery.toLowerCase());
       const matchesCategory = selectedCategory === "All" || post.category === selectedCategory;
-      return matchesSearch && matchesCategory;
+      const matchesTag =
+        !selectedTag ||
+        (post.tags ?? []).some((tag) => tag.toLowerCase() === selectedTag.toLowerCase()) ||
+        searchableText.includes(selectedTag.toLowerCase());
+
+      return matchesSearch && matchesCategory && matchesTag;
     });
-  }, [searchQuery, selectedCategory]);
+  }, [searchQuery, selectedCategory, selectedTag]);
 
   const featuredPost = posts.find((p) => p.featured) || posts[0];
   const otherPosts = filteredPosts.filter((p) => p.slug !== featuredPost.slug);
@@ -181,8 +190,25 @@ export default function BlogPage() {
       </section>
 
       <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8 py-16">
-        {/* Featured Article */}
-        {!searchQuery && selectedCategory === "All" && (
+        {filteredPosts.length === 0 ? (
+          <div className="rounded-[28px] border border-[#E6EEF2] bg-[#F8FAFB] p-10 text-center">
+            <h3 className="text-2xl font-semibold text-[#2C4D78] mb-2">No articles matched your filters</h3>
+            <p className="text-[#5A6B82] mb-6">Try a broader search or reset the selected filters.</p>
+            <button
+              onClick={() => {
+                setSearchQuery("");
+                setSelectedCategory("All");
+                setSelectedTag(null);
+              }}
+              className="rounded-full bg-[#2C4D78] px-4 py-2 text-sm font-semibold text-white"
+            >
+              Reset filters
+            </button>
+          </div>
+        ) : (
+          <>
+            {/* Featured Article */}
+            {!searchQuery && selectedCategory === "All" && !selectedTag && (
           <div className="mb-16">
             <Link href={`/blog/${featuredPost.slug}`}>
               <motion.div
@@ -258,10 +284,10 @@ export default function BlogPage() {
           </div>
         )}
 
-        {/* Blog Grid */}
-        {otherPosts.length > 0 && (
-          <>
-            <div className="mb-8">
+            {/* Blog Grid */}
+            {otherPosts.length > 0 && (
+              <>
+                <div className="mb-8">
               <h3 className="text-xl font-bold text-[#2C4D78] mb-6">
                 {searchQuery ? `Search Results (${otherPosts.length})` : "Latest Articles"}
               </h3>
@@ -351,6 +377,8 @@ export default function BlogPage() {
                 ))}
               </AnimatePresence>
             </div>
+              </>
+            )}
           </>
         )}
       </div>
