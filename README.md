@@ -6,6 +6,7 @@
 
 Q-RETIX AI is a polished, SaaS-style website built with **Next.js 16** and **React 19** — showcasing AI-powered pharmaceutical research, drug discovery, clinical trial intelligence, and healthcare innovation.
 
+[![CI](https://github.com/Ahsan-Dogar/Q-RETIX-AI/actions/workflows/ci.yml/badge.svg)](https://github.com/Ahsan-Dogar/Q-RETIX-AI/actions/workflows/ci.yml)
 [![Next.js](https://img.shields.io/badge/Next.js-16-000000?logo=nextdotjs&logoColor=white)]()
 [![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)]()
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)]()
